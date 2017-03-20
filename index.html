@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>React tutorial </title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+	</head>
+	
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+		
+		
+		var FirstComponent = React.createClass({
+			
+			render: function(){
+				return (
+				<div>
+					<h1>This is our first component </h1>
+					<h2>Hello again!</h2>
+				</div>
+				)
+			}
+		});
+		
+		var SecondComponent = React.createClass({
+		// propTypes funkar bara i development mode men inte prodution mode. 
+			propTypes:{
+				name: React.PropTypes.string.isRequired,
+				location: React.PropTypes.string.isRequired
+			},
+			
+			getDefaultProps: function(){
+				return {
+					name: 'Peter',
+					location: 'New York'
+				}
+			},
+			render: function(){
+				let name = this.props.name;
+				let location = this.props.location;
+				return (
+					<div>
+						<p>Hello {name}!</p>
+						<p>I live in {location}</p>
+					</div>
+				);
+			}
+		});
+		
+	/*	SecondComponent.propTypes = {
+			name: React.PropTypes.number
+		} */
+		
+		ReactDOM.render(
+			<SecondComponent location="Cambridge"/>,
+			document.getElementById('app')
+		); 
+		
+	//	ReactDOM.render(
+	//		<h1>Hello world, this is written is JSX!</h1>,
+	//		document.getElementById('app')
+	//	);
+		
+	//	 ReactDOM.render(
+	//		React.createElement(
+	//		'h1',
+	//		null,
+	//		'Hello World!'
+	//		),
+	//		document.getElementById('app')
+	//	); 
+		</script>
+	</body>
+</html>

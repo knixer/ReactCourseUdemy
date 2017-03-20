@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>treningu</title>
+    <meta charset="UTF-8"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="data"></div>
+
+    <script type="text/babel">
+
+    var Info = function(p){
+      return(
+        <div>
+          <button onClick={p.beeee}>{p.text}, {p.merText}</button>
+          <p>{p.text}</p>
+        </div>
+      )
+    }
+
+    var Klassen = React.createClass({
+      getDefaultProps: function(){
+        return{
+          text: 'hej'
+        }
+      },
+      clickHandler: function(){
+        alert("KLICK");
+      },
+      render: function(){
+
+        return(
+          <Info text={this.props.text} beeee={this.clickHandler}/>
+        )
+      }
+    });
+
+    ReactDOM.render(
+      <Klassen />,
+      document.getElementById('data')
+    );
+    </script>
+
+    <body>
+
+    </html>

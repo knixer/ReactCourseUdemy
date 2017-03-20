@@ -1,0 +1,8 @@
+var Button = function(){
+	return(
+	<div>
+		<button value={p} annat={p}>{p.text}>/button>
+		<p>{p.ptext}</p>
+	</div>	
+	)
+}
